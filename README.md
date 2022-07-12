@@ -36,6 +36,10 @@ Moreover
 
 <img src="imgs/laplacian_pyramid4.png" alt="laplacian_pyramid4" style="zoom:75%;" />
 
+### MINER Algorithm
+
+![MINER_algorithm](imgs/MINER_algorithm.png)
+
 ## How to setup?
 
 ### Data preparation
