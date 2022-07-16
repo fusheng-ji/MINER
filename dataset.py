@@ -9,9 +9,9 @@ class MinerDataset(Dataset):
     def __init__(self, out, hparams, active_blocks=None):
         """
         out:  output resized to the current level
-                subtracted by the unsampled reconstruction of the previous level
+                subtracted by the upsampled reconstruction of the previous level
                 in finer levels
-        activa_block:   torch.tensor None to return all blocks,
+        active_block:   torch.tensor None to return all blocks,
                         otherwise specify the blocks to take
         """
         self.patch_size = np.prod(hparams.patch_size)
@@ -30,9 +30,7 @@ class MinerDataset(Dataset):
             self.input = repeat(self.inp, '1 p c -> n p c', n = len(self.out))
             self.input = self.input[active_blocks]
             self.out = self.out[active_blocks]
-            
-        self.uv = create_meshgrid(patch_wh[1], patch_wh[0])
-        self.uv = rearrange(self.uv, '1 ph pw c -> 1 (ph pw) c')
+
         
     def __len__(self):
        return self.size 

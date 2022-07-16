@@ -35,11 +35,11 @@ methods = {
                 }
     }
 
-def einops_f(x, method, haparms=None, f=rearrange):
+def einops_f(x, method, hparams=None, f=rearrange):
     """
-    apply einops operation @f on @x according to method
+    Apply einops operation @f on @x according to @method
     with params in namespace @hparams
-    filter out unused params before passing to @f
+    Filter out unused params before passing to @f
     """
     if hparms is None:
         return f(x, method)
